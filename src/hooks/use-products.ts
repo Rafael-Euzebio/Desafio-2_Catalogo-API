@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { useSearchParams } from "react-router";
 
-import { FakeStoreService } from "../services/fake-store.service";
+import { FakeStoreService } from "../services/fake-store";
 
 export function useProducts() {
   const [searchParams] = useSearchParams();
@@ -12,7 +12,7 @@ export function useProducts() {
 
   const {
     data: rawProducts,
-    isLoading,
+    isPending,
     error,
   } = useQuery({
     queryKey: ["products"],
@@ -42,7 +42,7 @@ export function useProducts() {
   return {
     products: filteredAndSortedProducts,
     totalCount: filteredAndSortedProducts.length,
-    isLoading,
+    isPending,
     error,
   };
 }
