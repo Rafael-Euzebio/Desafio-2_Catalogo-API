@@ -1,38 +1,44 @@
 import {
   Card,
-  CardAction,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import type { Product } from "@/constants/products";
+import { formatCurrency } from "@/utils/format-currency";
 
-export const ProductCard = () => {
+export function ProductCard({ product }: { product: Product }) {
+  const formattedPrice = formatCurrency(product);
+
   return (
-    <Card className="w-84">
-      <img
-        src="https://avatar.vercel.sh/shadcn1"
-        alt="Event cover"
-        className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
-      />
-      <CardHeader className="flex flex-col">
-        <div className="flex justify-between w-full">
-          <CardTitle className="font-extrabold line-clamp-4">
-            Men's Fashion Shirt
+    <Card className="flex flex-col h-full overflow-hidden">
+      <div className="w-full h-56 p-4 bg-white">
+        <img
+          src={product.image}
+          alt={product.title}
+          className="w-full h-full object-contain mix-blend-multiply"
+        />
+      </div>
+
+      <CardHeader className="flex flex-col p-6">
+        <div className="flex items-start justify-between gap-4 mb-2">
+          <CardTitle className="font-extrabold text-lg line-clamp-2 flex-1">
+            {product.title}
           </CardTitle>
-          <CardAction>R$50.00</CardAction>
+
+          <span className="font-bold text-lg shrink-0">{formattedPrice}</span>
         </div>
+
         <CardDescription className="line-clamp-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-          consectetur dicta similique voluptas nesciunt veritatis eos dolorem,
-          qui officia, iusto ea unde fugiat ut placeat? Illum culpa accusamus
-          eaque soluta.
+          {product.description}
         </CardDescription>
       </CardHeader>
-      <CardFooter className="flex justify-between">
-        <span>Rating: 3.9</span>
-        <span>120 reviews</span>
+
+      <CardFooter className="flex justify-between mt-auto text-sm text-muted-foreground">
+        <span>Rating: 5</span>
+        <span>20 reviews</span>
       </CardFooter>
     </Card>
   );
-};
+}
