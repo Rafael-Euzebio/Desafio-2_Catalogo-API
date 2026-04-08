@@ -5,7 +5,7 @@ import { Card, CardContent } from "./ui/card";
 
 export const CategoryFilter = () => {
   return (
-    <Card>
+    <Card className="h-full">
       <CardContent className="space-y-2">
         <p className="text-blue-800 font-bold text-xs">FILTERS</p>
         <h3 className="text-xl font-bold">Shop by Category</h3>
