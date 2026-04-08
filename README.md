@@ -1,73 +1,170 @@
-# React + TypeScript + Vite
+P# Desafio 2 — Catálogo com API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Visão geral
 
-Currently, two official plugins are available:
+Neste desafio você irá construir uma **aplicação responsiva que consome uma API externa** e exibe um catálogo de produtos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+O objetivo é aprender a:
 
-## React Compiler
+* consumir APIs
+* renderizar dados dinamicamente
+* manipular dados na interface
+* manter uma interface responsiva
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Utilizaremos a **Fake Store API**, que fornece um conjunto de produtos fictícios para testes.
 
-## Expanding the ESLint configuration
+[https://fakestoreapi.com/](https://fakestoreapi.com/)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Referência visual
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+A interface deve se parecer com um **catálogo de produtos moderno**, semelhante a aplicações reais.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+![exemplo](./examples/example.png)
+
+Exemplo de estrutura comum:
+
+* lista de produtos em **grid/flex**
+* **sidebar ou barra de filtros**
+* **cards de produto**
+
+O layout pode usar:
+
+* sidebar com categorias + grid de produtos
+* filtros no topo + grid de produtos
+
+Não é necessário copiar exatamente a solução de referência.
+
+---
+
+# Stack obrigatória
+
+A implementação deve utilizar:
+
+* **React**
+* **Vite**
+* **TypeScript**
+* **Tailwind CSS**
+
+Este repositório fornece um projeto inicial com **React + Vite + TypeScript + TailwindCSS**.
+
+# API utilizada
+
+Utilize a **Fake Store API**.
+
+Produtos:
+
+```
+https://fakestoreapi.com/products
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Categorias:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+https://fakestoreapi.com/products/categories
+```
+
+Apenas eletrônicos
+
+```
+https://fakestoreapi.com/products/category/electronics
+```
+
+---
+
+# Objetivo
+
+Construir uma aplicação responsiva que:
+
+* consuma dados da API
+* exiba produtos em um catálogo
+* permita alguma **interação dinâmica com os dados**
+
+---
+
+# Requisitos obrigatórios
+
+Para aprovação no desafio:
+
+* consumir dados da Fake Store API
+* exibir produtos dinamicamente
+* cada produto deve mostrar pelo menos:
+
+  * imagem
+  * título
+  * preço
+
+* ter **componentização mínima**
+* interface **responsiva**
+* realizar **deploy da aplicação**
+
+Além disso, a aplicação deve possuir **pelo menos um comportamento dinâmico**, como por exemplo:
+
+* filtro por categoria
+* ordenação por preço
+* busca de produtos
+
+---
+
+# Melhorias opcionais
+
+Os itens abaixo não são obrigatórios, mas aumentam a qualidade da solução:
+
+* separação entre UI e lógica de dados
+* melhor organização de componentes
+* melhor tipagem TypeScript
+* melhor hierarquia visual
+* implementar loading state
+* implementar error state
+
+---
+
+# Como desenvolver e entregar
+
+## 1. Faça um fork do repositório
+
+Clique em **Fork** no topo desta página e clone o seu fork:
+
+```bash
+git clone https://github.com/seu-usuario/nome-do-repo.git
+cd nome-do-repo
+```
+
+---
+
+## 2. Instale as dependências
+
+```bash
+npm install
+```
+
+---
+
+## 3. Desenvolva a aplicação
+
+Durante o desenvolvimento:
+
+```bash
+npm run dev
+```
+
+Antes de enviar:
+
+```bash
+npm run build
+```
+
+---
+
+## 4. Envie sua solução
+
+Abra um **Pull Request do seu fork para este repositório**, contendo screenshots do layout em **desktop e mobile**
+
+Após o envio, sua solução será revisada. Feedback poderá ser fornecido antes da aprovação.
+
+## 5. Solução de Referência
+Esse site demonstra um modelo de solução, que implementa todos os requisitos obrigatórios e opcionais do desafio:
+
+https://desafio-2-solution.vercel.app/
+
