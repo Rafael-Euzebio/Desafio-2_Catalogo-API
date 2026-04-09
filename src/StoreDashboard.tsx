@@ -69,7 +69,7 @@ function StoreDashboard() {
     return (
         <>
             <StoreHeader
-                storeName="NACIONAL MODAS"
+                storeName="MODA NACIONAL"
                 subtitle="Explore nossos produtos e encontre os melhores preços"
                 searchValue={search}
                 loading={isPending}
