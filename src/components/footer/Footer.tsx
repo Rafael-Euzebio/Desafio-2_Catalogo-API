@@ -5,17 +5,18 @@ import {
     LinkedinLogoIcon,
 } from "@phosphor-icons/react";
 import { Mail, Phone, MapPin } from "lucide-react";
+import  crown  from "../../assets/crown.jpg";
 
 export default function Footer() {
     return (
         <footer className="bg-gray-100 text-gray-800">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+            <div className="max-w-full mx-auto  px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
 
-                <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-10">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-10">
 
                     <section className="flex flex-col items-center lg:items-start">
                         <header className="flex items-center gap-3 mb-4">
-                            <img src="http://localhost:5173/vite.svg" alt="Logo Lorem" className="w-16 h-16 sm:w-20 sm:h-20" />
+                            <img src={crown} alt="Logo Lorem" className="w-16 h-16 sm:w-20 sm:h-20" />
                             <div>
                                 <h2 className="font-extrabold text-2xl sm:text-3xl text-gray-900">LOREM</h2>
                                 <p className="text-xs sm:text-sm text-gray-500 font-medium">Lorem ipsum</p>
@@ -74,7 +75,7 @@ export default function Footer() {
                         <h2 className="font-bold text-base sm:text-lg mb-4 text-gray-900">Parceiros</h2>
 
                         <figure className="bg-white rounded-xl p-4 hover:bg-gray-200 transition-all duration-200 shadow-sm">
-                            <img src="http://localhost:5173/vite.svg" alt="Parceiro Lorem" className="h-10 sm:h-12 w-auto object-contain" />
+                            <img src={crown} alt="Parceiro Lorem" className="h-10 sm:h-12 w-auto object-contain" />
                         </figure>
 
                         <p className="text-xs sm:text-sm text-gray-500 mt-3 text-center lg:text-left">
