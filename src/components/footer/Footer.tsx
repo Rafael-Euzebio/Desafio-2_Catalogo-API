@@ -7,6 +7,20 @@ import {
 import { Mail, Phone, MapPin } from "lucide-react";
 import  crown  from "../../assets/crown.jpg";
 
+
+const socialLinks = [
+    { href: "#", icon: InstagramLogoIcon, label: "Instagram" },
+    { href: "#", icon: GithubLogoIcon, label: "GitHub" },
+    { href: "#", icon: LinkedinLogoIcon, label: "LinkedIn" },
+];
+
+const quickLinks = [
+    { to: "/home", label: "Home" },
+    { to: "/produtos", label: "Produtos" },
+    { to: "/categorias", label: "Categorias" },
+    { to: "/sobre", label: "Sobre" },
+];
+
 export default function Footer() {
     return (
         <footer className="bg-gray-100 text-gray-800">
@@ -28,25 +42,29 @@ export default function Footer() {
                         </p>
 
                         <nav aria-label="Redes sociais" className="flex space-x-4">
-                            <a href="#" className="bg-white hover:bg-blue-100 p-2.5 rounded-full transition-all duration-200 hover:scale-110 shadow-sm">
-                                <InstagramLogoIcon className="w-5 h-5 text-gray-700" />
-                            </a>
-                            <a href="#" className="bg-white hover:bg-blue-100 p-2.5 rounded-full transition-all duration-200 hover:scale-110 shadow-sm">
-                                <GithubLogoIcon className="w-5 h-5 text-gray-700" />
-                            </a>
-                            <a href="#" className="bg-white hover:bg-blue-100 p-2.5 rounded-full transition-all duration-200 hover:scale-110 shadow-sm">
-                                <LinkedinLogoIcon className="w-5 h-5 text-gray-700" />
-                            </a>
+                            {socialLinks.map((social) => (
+                                <Link
+                                    key={social.href}
+                                    to={social.href}
+                                    className="bg-white hover:bg-blue-100 p-2.5 rounded-full transition-all duration-200 hover:scale-110 shadow-sm"
+                                    aria-label={social.label}
+                                >
+                                    <social.icon className="w-5 h-5 text-gray-700" />
+                                </Link>
+                            ))}
                         </nav>
                     </section>
 
                     <nav className="flex flex-col items-center lg:items-start" aria-label="Links rápidos">
                         <h2 className="font-bold text-base sm:text-lg mb-4 text-gray-900">Links</h2>
                         <ul className="flex flex-col gap-2.5 text-center lg:text-left">
-                            <li><Link to="/" className="text-sm sm:text-base text-gray-600 hover:text-blue-600">Home</Link></li>
-                            <li><Link to="/" className="text-sm sm:text-base text-gray-600 hover:text-blue-600">Produtos</Link></li>
-                            <li><Link to="/" className="text-sm sm:text-base text-gray-600 hover:text-blue-600">Categorias</Link></li>
-                            <li><Link to="/" className="text-sm sm:text-base text-gray-600 hover:text-blue-600">Sobre</Link></li>
+                            {quickLinks.map((link) => (
+                                <li key={link.to}>
+                                    <Link to={link.to} className="text-sm sm:text-base text-gray-600 hover:text-blue-600">
+                                        {link.label}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </nav>
 
@@ -85,7 +103,7 @@ export default function Footer() {
 
                 </div>
 
-                <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-300">
+                <div className="mt-8  sm:mt-12 pt-6 sm:pt-8 border-t border-gray-300">
                     <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-gray-500">
                         <p className="text-center sm:text-left">
                             &copy; {new Date().getFullYear()} Lorem ipsum dolor sit amet.
