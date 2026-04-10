@@ -1,11 +1,29 @@
-function App() {
-  return (
-    <main className="flex min-h-screen items-center justify-center bg-slate-100 px-6 text-center">
-      <h1 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
-        Agile RiseUp - Desafio 2: Catalogo com API
-      </h1>
-    </main>
-  )
-}
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
+import Home from "./pages/home/Home";
 
-export default App
+export default function App() {
+  return (
+    <>
+    <BrowserRouter>
+      <div className="min-h-screen flex flex-col">
+
+        <header>
+          <Navbar />
+        </header>
+        
+        <main className="bg-gray-100 min-h-screen flex-1 flex flex-col">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </main>
+
+        <Footer/>
+
+      </div>
+    </BrowserRouter>
+    </>
+  );
+};
