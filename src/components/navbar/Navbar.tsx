@@ -4,7 +4,7 @@ import crown from "../../assets/crown.jpg";
 export default function Navbar() {
     return (
         <>
-            <nav className="w-full py-4 bg-gray-100 text-gray-800 shadow-sm">
+            <nav className="w-full py-4 bg-white text-gray-800 shadow-sm">
                 <section className="w-full flex items-center justify-between px-8">
                     <Link to="/home" className="flex items-center gap-2 text-2xl font-bold text-gray-900">
                         <img

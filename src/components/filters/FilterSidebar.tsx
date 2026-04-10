@@ -22,7 +22,7 @@ export default function FilterSidebar({
     }
 
     return (
-        <div className="h-full flex flex-col p-4">
+        <div className="h-full flex flex-col p-4 ">
             <h2 className="font-semibold text-lg mb-4">Filtros</h2>
 
             <input
@@ -37,11 +37,10 @@ export default function FilterSidebar({
                 <div className="flex flex-col gap-2">
                     <button
                         onClick={() => onFilter("")}
-                        className={`text-left px-3 py-2 rounded-lg transition ${
-                            selectedCategory === ""
+                        className={`text-left px-3 py-2 rounded-lg transition ${selectedCategory === ""
                                 ? "bg-black text-white"
                                 : "bg-gray-100 hover:bg-gray-200"
-                        }`}
+                            }`}
                     >
                         Todos
                     </button>
@@ -50,11 +49,10 @@ export default function FilterSidebar({
                         <button
                             key={cat.slug}
                             onClick={() => onFilter(cat.slug)}
-                            className={`text-left px-3 py-2 rounded-lg transition ${
-                                selectedCategory === cat.slug
+                            className={`text-left px-3 py-2 rounded-lg transition ${selectedCategory === cat.slug
                                     ? "bg-black text-white"
                                     : "bg-gray-100 hover:bg-gray-200"
-                            }`}
+                                }`}
                         >
                             {cat.name}
                         </button>
