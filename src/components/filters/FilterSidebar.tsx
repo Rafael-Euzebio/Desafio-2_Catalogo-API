@@ -39,7 +39,7 @@ export default function FilterSidebar({
                         onClick={() => onFilter("")}
                         className={`text-left px-3 py-2 rounded-lg transition ${
                             selectedCategory === ""
-                                ? "bg-blue-500 text-white"
+                                ? "bg-black text-white"
                                 : "bg-gray-100 hover:bg-gray-200"
                         }`}
                     >
